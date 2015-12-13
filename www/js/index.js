@@ -964,7 +964,9 @@ function onDeviceReady() {
             $(".nomecliente").html('CLIENTE: '+sedi[postazioneCorrente.id_sede]);
             $(".nomepostazione").html('Nome postazione: '+postazioneCorrente.nome);
             $(".serviziopostazione").html('Servizio: '+descrizioniservizio[postazioneCorrente.id_servizio]);
-            location.href="#ispezione"+tipiservizio[postazioneCorrente.id_servizio];
+            //location.href="#ispezione"+tipiservizio[postazioneCorrente.id_servizio];
+            $.mobile.pagecontainer.change("#ispezione"+tipiservizio[postazioneCorrente.id_servizio]);
+
             return 1;
             //return dati.rows.item(0);
         } else {
@@ -1799,10 +1801,11 @@ function onDeviceReady() {
     var error='';
 
     //db = window.openDatabase("LASAETTAPC5DB", "1.0.1", "Database La Saetta PC5", 200000);
-    db = window.sqlitePlugin.openDatabase("LASAETTAPC5DB", "1.0.1", "Database La Saetta PC5", 200000);
+    db = window.sqlitePlugin.openDatabase("LASAETTAPC5WDB", "1.0.2", "Database La Saetta PC5", 200000);
     try {
         db.transaction(function (tx) {
             tx.executeSql('SELECT * FROM LOCAL_ULTIMOAGGIORNAMENTO', [], function (tx, results) {
+                    alert("Eccomi");
                     var len = results.rows.length, i;
                     for (i = 0; i < len; i++){
                         global_ultimo_aggiornamento=results.rows.item(i).ultimo_aggiornamento;
@@ -1810,6 +1813,7 @@ function onDeviceReady() {
                         //alert ("ultimoaggiornamento in db: "+global_ultimo_aggiornamento);
                     }
                 }, function() {
+                    alert("Eccomi 2");
                     console.log("Creo db");
                     db.transaction(creoDb, onDbError, onDbOpenSuccess);
                     sincronizzaDaServer();
