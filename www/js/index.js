@@ -984,8 +984,9 @@ function onDeviceReady() {
             $(".nomecliente").html('CLIENTE: '+sedi[postazioneCorrente.id_sede]);
             $(".nomepostazione").html('Nome postazione: '+postazioneCorrente.nome);
             $(".serviziopostazione").html('Servizio: '+descrizioniservizio[postazioneCorrente.id_servizio]);
-            location.href="#ispezione"+tipiservizio[postazioneCorrente.id_servizio];
+            //location.href="#ispezione"+tipiservizio[postazioneCorrente.id_servizio];
             //$.mobile.pagecontainer.change("#ispezione"+tipiservizio[postazioneCorrente.id_servizio]);
+            $.mobile.pageContainer.pagecontainer("change", "#ispezione"+tipiservizio[postazioneCorrente.id_servizio]);
 
             return 1;
             //return dati.rows.item(0);
@@ -1065,7 +1066,8 @@ function onDeviceReady() {
         $("#nome").val('');
         $("#codice_postazione").val(scanText);
         $("#nuova_postazione").trigger("create");
-        location="#nuova_postazione";
+
+        $.mobile.pageContainer.pagecontainer("change", "#nuova_postazione");
         //location.href="#nuova_postazione";
 
     }
@@ -1295,7 +1297,9 @@ function onDeviceReady() {
                     } else {
                         alert("OK! Tutte le postazioni sono state visitate! Compila il modulo del certificato!");
                         //devo fare l'update su visite e poi chiamare genera certificati
-                        location.href="#fine_visita";
+                        //location.href="#fine_visita";
+                        $.mobile.pageContainer.pagecontainer("change", "#fine_visita");
+
                     }
 
                 }, function() {
