@@ -747,7 +747,7 @@ function onDeviceReady() {
 
     function getPostazioniIncrement(righeselect,k) {
         var j=righeselect.length;
-        alert("Dentro GetPostazioniIncrement, j="+j+" k="+k);
+        console.log("Dentro GetPostazioniIncrement, j="+j+" k="+k);
 
         db.transaction(
             function (tx3) {
@@ -761,7 +761,7 @@ function onDeviceReady() {
                     $("#Postazioni").removeClass('updating_class');
                     $("#Postazioni").addClass('updated_class');
                     //ora chiama quella successiva
-                    alert("ora passo alle visite");
+                    console.log("ora passo alle visite");
                     getVisiteListFromServer();
                 } else {
                     getPostazioniIncrement(righeselect,k+1);
