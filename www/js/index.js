@@ -925,7 +925,7 @@ function onDeviceReady() {
             postazioneCorrente.id_servizio=dati.rows.item(0).id_servizio;
             postazioneCorrente.nome=dati.rows.item(0).nome;
             postazioneCorrente.codice_postazione=dati.rows.item(0).codice_postazione;
-            location.href="#postazione_trovata";
+            $.mobile.pagecontainer.change("#postazione_trovata");
             return 1;
             //return dati.rows.item(0);
         } else {
@@ -1045,7 +1045,7 @@ function onDeviceReady() {
         $("#nome").val('');
         $("#codice_postazione").val(scanText);
         $("#nuova_postazione").trigger("create");
-        location.href="#nuova_postazione";
+        $.mobile.pagecontainer.change("#nuova_postazione");
 
     }
 
