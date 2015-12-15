@@ -945,7 +945,8 @@ function onDeviceReady() {
             postazioneCorrente.id_servizio=dati.rows.item(0).id_servizio;
             postazioneCorrente.nome=dati.rows.item(0).nome;
             postazioneCorrente.codice_postazione=dati.rows.item(0).codice_postazione;
-            location.href="#postazione_trovata";
+            //location.href="#postazione_trovata";
+            $.mobile.pageContainer.pagecontainer("change", "#postazione_trovata");
             return 1;
             //return dati.rows.item(0);
         } else {
@@ -1092,7 +1093,8 @@ function onDeviceReady() {
             aggiungiPostazione(nuovapostazione);
             //inviaPostazioneToServer(nuovapostazione);
             $("#home").trigger("create");
-            location.href = '#home';
+            $.mobile.pageContainer.pagecontainer("change", "#home");
+            //location.href = '#home';
         }
     });
 
@@ -1217,7 +1219,8 @@ function onDeviceReady() {
          alert("Sono senza connessione, devo aggiungere visita in locale!");
          }
          */
-        location.href = '#home';
+        //location.href = '#home';
+        $.mobile.pageContainer.pagecontainer("change", "#home");
 
     }
     /*
@@ -1551,7 +1554,8 @@ function onDeviceReady() {
                 function () {
                     $('#FORMispezioneA1').trigger("reset");
                     AggiornaSuServer();
-                    location.href="#singola_visita?id="+VisitaCorrente.codice_visita;
+                    //location.href="#singola_visita?id="+VisitaCorrente.codice_visita;
+                    $.mobile.pageContainer.pagecontainer("change", "#singola_visita?id="+VisitaCorrente.codice_visita);
                     //alert("ispezione "+postazioneCorrente.codice_ispezione+" aggiornata");
                 }
             );
@@ -1584,7 +1588,9 @@ function onDeviceReady() {
                 function () {
                     $('#FORMispezioneA2').trigger("reset");
                     AggiornaSuServer();
-                    location.href="#singola_visita?id="+VisitaCorrente.codice_visita;
+                    //location.href="#singola_visita?id="+VisitaCorrente.codice_visita;
+                    $.mobile.pageContainer.pagecontainer("change", "#singola_visita?id="+VisitaCorrente.codice_visita);
+
                     //alert("ispezione "+postazioneCorrente.codice_ispezione+" aggiornata");
                 }
             );
@@ -1617,7 +1623,8 @@ function onDeviceReady() {
                 function () {
                     $('#FORMispezioneB').trigger("reset");
                     AggiornaSuServer();
-                    location.href="#singola_visita?id="+VisitaCorrente.codice_visita;
+                    //location.href="#singola_visita?id="+VisitaCorrente.codice_visita;
+                    $.mobile.pageContainer.pagecontainer("change", "#singola_visita?id="+VisitaCorrente.codice_visita);
                     //alert("ispezione "+postazioneCorrente.codice_ispezione+" aggiornata");
                 }
             );
@@ -1650,7 +1657,8 @@ function onDeviceReady() {
                 function () {
                     $('#FORMispezioneC').trigger("reset");
                     AggiornaSuServer();
-                    location.href="#singola_visita?id="+VisitaCorrente.codice_visita;
+                    //location.href="#singola_visita?id="+VisitaCorrente.codice_visita;
+                    $.mobile.pageContainer.pagecontainer("change", "#singola_visita?id="+VisitaCorrente.codice_visita);
                     //alert("ispezione "+postazioneCorrente.codice_ispezione+" aggiornata");
                 }
             );
@@ -1683,7 +1691,8 @@ function onDeviceReady() {
                 function () {
                     $('#FORMispezioneE').trigger("reset");
                     AggiornaSuServer();
-                    location.href="#singola_visita?id="+VisitaCorrente.codice_visita;
+                    //location.href="#singola_visita?id="+VisitaCorrente.codice_visita;
+                    $.mobile.pageContainer.pagecontainer("change", "#singola_visita?id="+VisitaCorrente.codice_visita);
                     //alert("ispezione "+postazioneCorrente.codice_ispezione+" aggiornata");
                 }
             );
@@ -1729,7 +1738,8 @@ function onDeviceReady() {
                 onDbError,
                 function () {
                     AggiornaSuServer();
-                    location.href="#singola_visita?id="+VisitaCorrente.codice_visita;
+                    //location.href="#singola_visita?id="+VisitaCorrente.codice_visita;
+                    $.mobile.pageContainer.pagecontainer("change", "#singola_visita?id="+VisitaCorrente.codice_visita);
                     //alert("ispezione "+postazioneCorrente.codice_ispezione+" aggiornata");
                 }
             );
@@ -1770,7 +1780,8 @@ function onDeviceReady() {
                     onDbError,
                     function () {
                         alert("Visita conclusa");
-                        location.href="#home?sincronizza=1";
+                        //location.href="#home?sincronizza=1";
+                        $.mobile.pageContainer.pagecontainer("change", "#home?sincronizza=1");
                         //alert("ispezione "+postazioneCorrente.codice_ispezione+" aggiornata");
                     }
                 );
