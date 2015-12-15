@@ -1820,8 +1820,8 @@ function onDeviceReady() {
     var success='';
     var error='';
 
-    db = window.openDatabase("LASAETTAPC5DB", "1.0.1", "Database La Saetta PC5", 200000);
-    //db = window.sqlitePlugin.openDatabase("LASAETTAPC5DB", "1.0.1", "Database La Saetta PC5", 200000);
+    //db = window.openDatabase("LASAETTAPC5WDB", "1.0.1", "Database La Saetta PC5W", 200000);
+    db = window.sqlitePlugin.openDatabase("LASAETTAPC5WDB", "1.0.1", "Database La Saetta PC5W", 200000);
     try {
         db.transaction(function (tx) {
             tx.executeSql('SELECT * FROM LOCAL_ULTIMOAGGIORNAMENTO', [], function (tx, results) {
