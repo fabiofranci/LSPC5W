@@ -717,8 +717,10 @@ function onDeviceReady() {
                 var j=0;
                 $.each(postazioni_server, function (index, postazione) {
                     if (i % 50 ==0) {
-                        righeselect[j]=rigaselect;
-                        j=j+1;
+                        if (i>0) {
+                            righeselect[j]=rigaselect;
+                            j=j+1;
+                        }
                         rigaselect="INSERT OR REPLACE INTO LOCAL_POSTAZIONI (id_sede, id_servizio, codice_postazione, nome, latitudine_p, longitudine_p) SELECT '"+postazione.id_sede+"' AS id_sede, '"+postazione.id_servizio+"' AS id_servizio, '"+postazione.codice_postazione+"' as codice_postazione, '"+postazione.nome+"' AS nome, '"+postazione.latitudine_p+"' AS latitudine_p, '"+postazione.longitudine_p+"' AS longitudine_p";
                     } else {
                         rigaselect+=" UNION ALL SELECT '"+postazione.id_sede+"','"+postazione.id_servizio+"','"+postazione.codice_postazione+"','"+postazione.nome+"','"+postazione.latitudine_p+"','"+postazione.longitudine_p+"'";
