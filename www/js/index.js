@@ -727,6 +727,7 @@ function onDeviceReady() {
                     }
                     i++;
                 });
+                righeselect[j]=rigaselect;
                 //alert(rigaselect);
                 //console.log(rigaselect);
 
@@ -748,6 +749,7 @@ function onDeviceReady() {
     function getPostazioniIncrement(righeselect,k) {
         var j=righeselect.length;
         console.log("Dentro GetPostazioniIncrement, j="+j+" k="+k);
+        alert("Dentro GetPostazioniIncrement, j="+j+" k="+k);
 
         db.transaction(
             function (tx3) {
@@ -756,7 +758,7 @@ function onDeviceReady() {
             onDbError,
             function () {
 
-                if (k+1==j) {
+                if (k==j) {
                     //alert(i+" clienti inseriti");
                     $("#Postazioni").removeClass('updating_class');
                     $("#Postazioni").addClass('updated_class');
