@@ -749,28 +749,25 @@ function onDeviceReady() {
     function getPostazioniIncrement(righeselect,k) {
         var j=righeselect.length;
         console.log("Dentro GetPostazioniIncrement, j="+j+" k="+k);
-        alert("Dentro GetPostazioniIncrement, j="+j+" k="+k);
+        if (k==j) {
+            //alert(i+" clienti inseriti");
+            $("#Postazioni").removeClass('updating_class');
+            $("#Postazioni").addClass('updated_class');
+            //ora chiama quella successiva
+            console.log("ora passo alle visite");
+            getVisiteListFromServer();
+        } else {
+            db.transaction(
+                function (tx3) {
+                    tx3.executeSql(righeselect[k]);
+                },
+                onDbError,
+                function () {
 
-        db.transaction(
-            function (tx3) {
-                tx3.executeSql(righeselect[k]);
-            },
-            onDbError,
-            function () {
-
-                if (k==j) {
-                    //alert(i+" clienti inseriti");
-                    $("#Postazioni").removeClass('updating_class');
-                    $("#Postazioni").addClass('updated_class');
-                    //ora chiama quella successiva
-                    console.log("ora passo alle visite");
-                    getVisiteListFromServer();
-                } else {
                     getPostazioniIncrement(righeselect,k+1);
                 }
-
-            }
-        );
+            );
+        }
     }
 
     function getVisiteListFromServer() {
