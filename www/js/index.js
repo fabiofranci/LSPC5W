@@ -1065,7 +1065,8 @@ function onDeviceReady() {
         $("#nome").val('');
         $("#codice_postazione").val(scanText);
         $("#nuova_postazione").trigger("create");
-        location.href="#nuova_postazione";
+        location="#nuova_postazione";
+        //location.href="#nuova_postazione";
 
     }
 
