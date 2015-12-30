@@ -1837,7 +1837,7 @@ function onDeviceReady() {
 
 //    db = window.openDatabase("LASAETTADB2016", "1.0.1", "Database La Saetta PC5", 200000);
     db = window.sqlitePlugin.openDatabase("LASAETTADB2016", "1.0.1", "Database La Saetta PC5", 200000);
-    db.transaction(pulisciDataBase, onDbError, onDbClearSuccess);
+//    db.transaction(pulisciDataBase, onDbError, onDbClearSuccess);
     try {
         db.transaction(function (tx) {
             tx.executeSql('SELECT * FROM LOCAL_ULTIMOAGGIORNAMENTO', [], function (tx, results) {
